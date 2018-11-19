@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int mario(int first, int second){
+	int sum = first + second;
+	return sum;
+	printf("This line is never exectuted!\n");
+}
+
+int main(){
+
+	printf("Hello function world!\n");
+	int z = mario(22, 20);
+	printf("The answer is %d\n", z);
+
+	return 0;
+}
