@@ -25,6 +25,6 @@ int main(){
 	if(strcmp(name, prof) == 0) //strcmp is 0 if arrays are equal, 1 if different
 		printf("Yay!\n");
 	for(int i = 0; i<MAX_NAME; ++i){ //It shows that NULL = 0 and we have garbage values after 0
-		printf("\n%d (%c)", name[t], name[t]);
+		printf("\n%d (%c)", name[i], name[i]);
 	}
 }
