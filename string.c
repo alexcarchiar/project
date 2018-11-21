@@ -6,7 +6,7 @@
 #define MAX_NAME 20
 
 int main(){
-	char prof[] = "Giovanni"
+	char prof[] = "Giovanni";
 	char name[MAX_NAME + 1]; //add +1 for the NULL; it is recommened to leave it explicit
 	printf("What is your name? ");
 	scanf("%s", name); //Magic: no &; scanf() is reading tokens: a group of non space chars surrounded by space chars
