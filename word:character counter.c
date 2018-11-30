@@ -8,7 +8,7 @@
 
 int main(){
     int string[MAX], num_char, num_alpha, num_upper, num_digit, num_space, num_words;
-    num_words =num_char = num_alpha = num_upper = num_digit = num_space = num_words = 0;
+    num_words =num_char = num_alpha = num_upper = num_digit = num_space = 0;
     int is_word = 0; //0 means not a word, 1 means we have a word
     printf("Write your sequence of characters\n");
     for(int i = 0; i<MAX && string[i-1] != '\n'; ++i){
