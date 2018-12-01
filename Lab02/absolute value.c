@@ -1,3 +1,4 @@
+//Lab02 ex6
 #include <stdio.h>
 #include <stdlib.h>
 
