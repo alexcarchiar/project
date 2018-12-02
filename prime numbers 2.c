@@ -9,17 +9,17 @@ int main()
     number = 1;
     while (number < 100){
             ++number;
-             int i = 1;
-    int counter = 0;
-    while (i <= number) {
-        if(number % i == 0) {
-            ++counter;
-        }
-        ++i;
-    }
-    if(counter == 2) {
-        printf("%d ", number);
-    }
+            int i = 1;
+            int counter = 0;
+            while (i <= number) {
+                if(number % i == 0) {
+                    ++counter;
+                }
+                ++i;
+             }
+            if(counter == 2) {
+             printf("%d ", number);
+             }
 
     }
 
