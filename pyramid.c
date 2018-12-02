@@ -1,3 +1,4 @@
+//Lab04 exercise 4 but in reverse
 #include <stdio.h>
 #include <stdlib.h>
 
