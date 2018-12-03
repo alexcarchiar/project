@@ -9,11 +9,11 @@
 int main(){
     
     char strings[MAX+1][MAX+1];
-    for(int i = 0; i<(MAX+1) && strings[i-1][0] != '\\'; ++i){ //getting strings
-        printf("Insert string index %d\n", i);
+    for(int i = 0; i<(MAX+1) && strings[i-1][0] != 'EOF'; ++i){ //getting strings
+        printf("Insert string index %d, press EOF to stop\n", i);
         gets(strings[i]);
     }
-    for(int i = 0; i<(MAX+1) && strings[i-1][0] != '\\'; ++i){
+    for(int i = 0; i<(MAX+1) && strings[i-1][0] != 'EOF'; ++i){
         for(int j = 0; j<(MAX+1) && strings[i][j] != '\0'; ++j){ //printing the strings checking the required conditions
             if(strings[i][j] == 'c' && strings[i][j+1] == 'h'){
                 printf("k");
