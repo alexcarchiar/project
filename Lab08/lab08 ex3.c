@@ -81,7 +81,8 @@ int precedes(char *time1, char *time2){
 int to_int(char *time){
     
     int int_time = 0;
-    int_time = time[4] + (10*time[3]) + (60 * time[1]) + (10 * 60 * time[0]);
+     int_time = (time[4] -'0') + (10*(time[3]-'0')) + (60 * (time[1]-'0')) + (10 * 60 * (time[0]-'0'));
+    printf("%d\n", int_time);
     
     return int_time;
 }
