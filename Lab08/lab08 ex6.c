@@ -8,26 +8,37 @@
 
 int main(){
     
-    char strings[MAX+1][MAX+1];
-    for(int i = 0; i<(MAX+1) && strings[i-1][0] != 'EOF'; ++i){ //getting strings
-        printf("Insert string index %d, press EOF to stop\n", i);
-        gets(strings[i]);
-    }
-    for(int i = 0; i<(MAX+1) && strings[i-1][0] != 'EOF'; ++i){
-        for(int j = 0; j<(MAX+1) && strings[i][j] != '\0'; ++j){ //printing the strings checking the required conditions
-            if(strings[i][j] == 'c' && strings[i][j+1] == 'h'){
-                printf("k");
-                ++j; //need to skip an iteration
-            } else if(strings[i][j] == strings[i][j+1]){
-                printf("%c", strings[i][j]);
-                ++j; //need to skip an iteration
-            } else{
-                printf("%c", strings[i][j]);
+    int sequences[MAX+1][MAX+1];
+    int flag_eof = 0; //means the eof has not been input
+    int counter_of_sequences = 0;
+    
+    for(int i = 0; i<MAX+1 && flag_eof == 0; ++i){ //getting the sequences
+        printf("Insert sequence index %d\n", i);
+        int flag_new_line = 0; //means the new line has not been input
+        for(int j = 0; j<MAX+1 && flag_new_line == 0; ++j){
+            sequences[i][j] = getchar();
+            if(sequences[i][j] == '\n'){
+                flag_new_line = 1;
+            } else if(sequences[i][j] == EOF){
+                flag_new_line = 1;
+                flag_eof = 1;
             }
         }
-        printf("\n");
+        counter_of_sequences = i;
     }
-    
+    for(int i = 0; i<counter_of_sequences; ++i){//prints the sequences
+        for(int j = 0; j<MAX+1 && sequences[i][j-1] != '\n'; ++j){
+            if(sequences[i][j] == 'c' && sequences[i][j+1] == 'h'){ //checks the ch
+                printf("k");
+                ++j; //need to skip an iteration
+            } else if(sequences[i][j] == sequences[i][j+1]){ //checks the doubles
+                printf("%c", sequences[i][j]);
+                ++j; //need to skip an iteration
+            } else{
+                printf("%c", sequences[i][j]);
+            }
+        }
+    }
     
     return 0;
 }
