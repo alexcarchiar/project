@@ -1,0 +1,57 @@
+//Lab06 ex6
+#include <stdio.h>
+#include <stdlib.h>
+
+int dec_base (int n, int base);
+
+int dec_base (int n, int base){
+    
+    int base2 = base;
+    
+    int num = n;
+    int counter = 1;
+    int value = 0;
+    
+    do { //gets the amounts of digits needed to write the number with base "base"
+        n = (n - (n % base)) / base;
+        counter++;
+    } while (n >= base);
+    
+    int v1[counter];
+    
+    for (int i = 0; i < counter; i++) { //converts into base "base"
+        v1[i] = num % base2;
+        num = (num - v1[i]) / base2;
+    }
+    
+    int base3 = 1;
+    
+    for (int i = counter-1; i >= 0; i--) { //converts back into base 10
+        value = base3*v1[i] + value;
+        base3 = base3*base;
+    }
+    
+    return value;
+    
+}
+
+
+int main()
+
+{
+    int number;
+    int flag; //used to check if a sequence is palindrome
+    
+    printf("Tell me a number N and I'll tell you whether it is palindrome or not in any base up to N-1\n");
+    scanf("%d", &number);
+    
+    
+    for (int i = 2; i < number; i++) {
+        flag = dec_base (number, i); //flag becomes the decimal value the specular
+        if (flag == number) { //true only if the number is palindrome
+            printf("%d is palindrome in base %d\n", number, i);
+        }
+    }
+    
+    return 0;
+}
