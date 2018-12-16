@@ -1,15 +1,15 @@
 //Lab11 ex04
 //basically the same as ex03 Lab09, but with parameters
 /*
-This is a program that gets an input from a file and gets names of train stations
-and departure/arrival times.
-In each line, the file contains the
-following information (each field is no longer than 20 characters and has
-no spaces):
-<departure_station> <departure_time> <arrival_station> <arrival_time>
-The user inputs a station and the program tells how many trains are from and to
-that specific station.
-*/
+ This is a program that gets an input from a file and gets names of train stations
+ and departure/arrival times.
+ In each line, the file contains the
+ following information (each field is no longer than 20 characters and has
+ no spaces):
+ <departure_station> <departure_time> <arrival_station> <arrival_time>
+ The user inputs a station and the program tells how many trains are from and to
+ that specific station.
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -39,18 +39,18 @@ int main(int argc, char **argv){ //first parameter is the name of the file, the 
         printf("Error: too many arguments\n");
         exit(1);
     }
-    
+    printf("%s\n", argv[2]);
     LINE lines[MAX_LINE+1]; //array to store lines
     printf("Trenitalia by alexcarchiar\n");
     int number_of_lines = get_input(lines, argv[1]); //function to get input from files
     
     
-
+    
     char input_station[LEN_FIELD+1];
-    char station[LEN_FIELD+1]; //this is used to preserve the uppercases of the user input
-    printf("Which station do you want to check?\n");
-    scanf("%s", input_station);
-    strcpy(station, input_station);
+    //this is used to preserve the uppercases of the user input
+    
+    
+    strcpy(input_station, argv[2]);
     
     
     tolower_string(input_station); //converting all names to lower char to avoid the upper/lowercase problem
@@ -70,7 +70,7 @@ int main(int argc, char **argv){ //first parameter is the name of the file, the 
             counter_trains_from_input++;
         }
     }
-    printf("There are %d trains from %s and %d trains to %s\n", counter_trains_from_input, station, counter_trains_to_input, station);
+    printf("There are %d trains from %s and %d trains to %s\n", counter_trains_from_input, argv[2], counter_trains_to_input, argv[2]);
     
     return 0;
 }
@@ -115,7 +115,7 @@ int get_input(LINE *lin, char *path){
                 } else {
                     lin[i].departure_time[index_departure_time] = '\0';
                     number_of_spaces++;
-                    }
+                }
             }else if(number_of_spaces == 2){
                 if(reader[i][j] != ' '){
                     lin[i].arrival_station[index_arrival_station] = reader[i][j];
